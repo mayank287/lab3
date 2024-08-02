@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .alert{
             margin-top: 2em;
@@ -13,12 +11,56 @@
             background-color: red;
             color: white;
         }
-
         #map {
             height: 400px;
             width: 50%;
             margin-top: 20px;
         }
+        .btn{
+            align-items: center;
+            appearance: none;
+            background-color: #6ed2a3;
+            border-radius: 4px;
+            border-width: 0;
+            box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(41, 66, 35, 0.3) 0 7px 13px -3px,#245d18 0 -3px 0 inset;
+            box-sizing: border-box;
+            color: #36395A;
+            cursor: pointer;
+            display: inline-flex;
+            font-family: "JetBrains Mono",monospace;
+            height: 48px;
+            justify-content: center;
+            line-height: 1;
+            list-style: none;
+            overflow: hidden;
+            padding-left: 16px;
+            padding-right: 16px;
+            position: relative;
+            text-align: left;
+            text-decoration: none;
+            transition: box-shadow .15s,transform .15s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            will-change: box-shadow,transform;
+            font-size: 18px;
+        }
+
+        .btn:focus {
+            box-shadow: #d9e7d6 0 0 0 1.5px inset, rgba(31, 74, 38, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+        }
+
+        .btn:hover {
+            box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #225035 0 -3px 0 inset;
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            box-shadow: #1b3719 0 3px 7px inset;
+            transform: translateY(2px);
+        }
+
     </style>
     <title>About Us</title>
 </head>
@@ -62,13 +104,11 @@
                 console.log("Update your browser to get location information");
             }
         };
-    </script>
-    <button class="btn p-2 m-2 btn-success" onclick="redirect()">Open Location in Google Maps</button>
-    <script>
         function redirect(){
-            window.location.href = `https://maps.app.goo.gl/QNFYQeFcPREos9LD6`
+            window.open("https://maps.app.goo.gl/QNFYQeFcPREos9LD6")
         }
     </script>
+    <button class="btn btn-success" onclick="redirect()">Open Location in Google Maps</button>
     
 </body>
 </html>
