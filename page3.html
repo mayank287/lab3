@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps Navigation and Location Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .info {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Navigate to Google Maps and Find Location</h1>
+        <a href="https://www.google.com/maps?q=37.7749,-122.4194" target="_blank" class="button">
+            Open Location in Google Maps
+        </a>
+        <div class="info">
+            <button onclick="getCurrentLocation()" class="button">
+                Find My Location
+            </button>
+            <p id="location-info"></p>
+        </div>
+    </div>
+
+    <script>
+        function getCurrentLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+                    var locationInfo = "Latitude: " + latitude + "<br>Longitude: " + longitude;
+                    document.getElementById('location-info').innerHTML = locationInfo;
+                    console.log("Latitude: " + latitude);
+                    console.log("Longitude: " + longitude);
+                }, function(error) {
+                    console.error("Error occurred while retrieving location: " + error.message);
+                    document.getElementById('location-info').innerHTML = "Unable to retrieve location.";
+                });
+            } else {
+                console.error("Geolocation is not supported by this browser.");
+                document.getElementById('location-info').innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+    </script>
+</body>
+</html>
